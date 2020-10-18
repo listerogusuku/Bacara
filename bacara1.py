@@ -1,3 +1,3 @@
 print('teste inicial')
 print('oi')
-print('Oi, Lister rs')
+print('Oi, Lister! rs')

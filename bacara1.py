@@ -29,4 +29,17 @@ while aux==0:
             Aposta=input("Em quem você quer apostar? ")
 
         Fichas=int(input("Quantas fichas você quer apostar? "))
-        
+
+# Criação de um While para impedir que o usuário adicione mais fichas do que o permitido:
+
+        while Fichas > soma:
+            print('Número de fichas maior que o permitido!')
+            Fichas = int(input('Digite novo número de fichas: '))
+
+        numero_de_baralhos=int(input("Quantos baralhos você quer? 1, 6 ou 8: "))
+
+# Criação de um While para impedir que o usuário adicione mais baralhos do que o permitido:
+
+        while numero_de_baralhos != 1 and numero_de_baralhos != 6 and numero_de_baralhos != 8:
+            print('Número de baralhos não permitido!')
+            numero_de_baralhos=int(input("Quantos baralhos você quer? 1, 6 ou 8: ")) 

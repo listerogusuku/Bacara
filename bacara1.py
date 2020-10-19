@@ -29,3 +29,4 @@ while aux==0:
             Aposta=input("Em quem você quer apostar? ")
 
         Fichas=int(input("Quantas fichas você quer apostar? "))
+        

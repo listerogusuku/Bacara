@@ -143,3 +143,31 @@ while aux==0:
 
         soma_banco=(carta1_Banco+carta2_Banco)%10
         print('A soma das cartas do banco é {}'.format(soma_banco))
+
+        # Regras para a carta puxada do jogador:
+
+        jogador_puxou=0
+        if soma_jogador<=5:
+            jogador_puxou=1
+            print("Jogador puxa outra carta!")   
+
+            # Sorteia carta 3 do jogador:
+
+            carta3_Jogador=random.randint(1,13)
+            naipe3_Jogador=random.randint(0,3)
+            c3j=baralho[carta3_Jogador]
+            n3j=naipe[naipe3_Jogador]
+
+            # While que atribui às cartas maiores que 9 o valor 0 e mostra ao usuário qual carta ele tirou:
+
+            while num_cartas[carta3_Jogador][naipe3_Jogador]==0:
+                carta3_Jogador=random.randint(1,13)
+                naipe3_Jogador=random.randint(0,3)
+                c3j=baralho[carta3_Jogador]
+                n3j=naipe[naipe3_Jogador]
+            num_cartas[carta3_Jogador][naipe3_Jogador]-=1
+
+            if baralho[carta3_Jogador]==10 or baralho[carta3_Jogador]=='K' or baralho[carta3_Jogador]=='Q' or baralho[carta3_Jogador]=='J':
+                carta3_Jogador=0
+            print("A terceira carta do jogador é {} de {}, que equivale a {} ".format(c3j,n3j,carta3_Jogador))
+            print("A nova soma do jogador é {}".format((soma_jogador+carta3_Jogador)%10))

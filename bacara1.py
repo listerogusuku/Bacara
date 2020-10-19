@@ -98,3 +98,48 @@ while aux==0:
 
         soma_jogador=(carta1_Jogador+carta2_Jogador)%10
         print('A soma das cartas do jogador é {} '.format(soma_jogador))
+
+        # Sorteia uma carta e um naipe por meio da biblioteca random:
+
+        carta1_Banco=random.randint(1,13)
+        naipe1_Banco=random.randint(0,3)
+        c1b=baralho[carta1_Banco]
+        n1b=naipe[naipe1_Banco]
+
+        # While que atribui às cartas maiores que 9 o valor 0 e mostra ao usuário qual carta ele tirou:
+
+        while num_cartas[carta1_Banco][naipe1_Banco]==0:
+            carta1_Banco=random.randint(1,13)
+            naipe1_Banco=random.randint(0,3)
+            c1b=baralho[carta1_Banco]
+            n1b=naipe[naipe1_Banco]
+        num_cartas[carta1_Banco][naipe1_Banco]-=1
+        if baralho[carta1_Banco]==10 or baralho[carta1_Banco]=='K' or baralho[carta1_Banco]=='Q' or baralho[carta1_Banco]=='J':
+            carta1_Banco=0
+        print("A primeira carta do banco é {} de {}, que equivale a {}".format(c1b,n1b, carta1_Banco))
+
+        # Sorteia uma carta e um naipe por meio da biblioteca random:
+
+        carta2_Banco=random.randint(1,13)
+        naipe2_Banco=random.randint(0,3)
+        c2b=baralho[carta2_Banco]
+        n2b=naipe[naipe2_Banco]
+
+        # While que atribui às cartas maiores que 9 o valor 0 e mostra ao usuário qual carta ele tirou:
+
+        while num_cartas[carta2_Banco][naipe2_Banco]==0:
+
+            carta2_Banco=random.randint(1,13)
+            naipe2_Banco=random.randint(0,3)
+            c2b=baralho[carta2_Banco]
+            n2b=naipe[naipe2_Banco]
+
+        num_cartas[carta2_Banco][naipe2_Banco]-=1
+        if baralho[carta2_Banco]==10 or baralho[carta2_Banco]=='K' or baralho[carta2_Banco]=='Q' or baralho[carta2_Banco]=='J':
+            carta2_Banco=0
+        print("A segunda carta do banco é {} de {}, que equivale a {} ".format(c2b,n2b,carta2_Banco))
+
+        # Mostra a soma das cartas do banco:
+
+        soma_banco=(carta1_Banco+carta2_Banco)%10
+        print('A soma das cartas do banco é {}'.format(soma_banco))

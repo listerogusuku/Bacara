@@ -218,3 +218,41 @@ while aux==0:
                 print("Banco puxa outra carta!")
             
             
+        # "ifs" e "elifs" que dizem se o jogador ou o banco ganhou; se sua aposta foi em quem ganhou e a distribuição dos pontos para a casa e para o usuário.
+
+        if soma_jogador>soma_banco:
+            print("Jogador ganhou!")   
+            if Aposta=="Jogador" or Aposta=="jogador":
+                print("Você ganhou e recebe {0} fichas. Sua nova soma é {1} ".format(Fichas, soma+Fichas))
+                soma+=Fichas
+                if numero_de_baralhos==1:  #se jogador ganhar
+                    print("Você pagará para casa {} fichas. Sua nova soma é {} ".format(int(0.0129*Fichas), soma-int(0.0129*Fichas)))
+                    soma+=Fichas-int(0.0129*Fichas)
+                elif numero_de_baralhos==6:
+                    print("Você pagará para casa {} fichas. Sua nova soma é {} ".format(int(0.0124*Fichas), soma-int((0.0124*Fichas))))
+                    soma+=Fichas-int((0.0124*Fichas))
+                else:
+                    print("Você pagará para casa {} fichas. Sua nova soma é {} ".format(int(0.0124*Fichas), soma-int((0.0124*Fichas))))
+                    soma+=Fichas-int((0.0124*Fichas))
+            else:
+                print("Você perdeu {0} fichas. Sua nova soma é {1}\nNão pague nada a casa ".format(Fichas, soma-Fichas))
+                soma=soma-Fichas
+
+        elif soma_banco>soma_jogador:
+            print("Banco ganhou!")
+            if Aposta=="Banco" or Aposta=="banco":
+                print("Você ganhou e recebe {0} fichas. Sua nova soma é {1} ".format(int(0.95*Fichas),soma+int(0.95*Fichas)))
+                soma=soma+int(0.95*Fichas)
+                if numero_de_baralhos==1:  #se empate
+                    print("Você pagará para casa {} fichas. Sua nova soma é {} ".format(int(0.1575*Fichas), soma-int((0.1575*Fichas))))
+                    soma=soma+Fichas-int((0.1575*Fichas))
+                elif numero_de_baralhos==6:
+                    print("Você pagará para casa {} fichas. Sua nova soma é {} ".format(int(0.1444*Fichas), soma-int((0.1444*Fichas))))
+                    soma=soma+Fichas-int((0.1444*Fichas))
+                else:
+                    print("Você pagará para casa {} fichas. Sua nova soma é {} ".format(int(0.1436*Fichas), soma-int((0.1436*Fichas))))
+                    soma=soma+Fichas-int((0.1436*Fichas))
+            else:
+                print("Você perdeu {0} fichas. Sua nova soma é {1}\nNão pague nada a casa ".format(Fichas, soma-Fichas))
+                soma=soma-Fichas        
+               

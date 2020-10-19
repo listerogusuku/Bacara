@@ -43,3 +43,14 @@ while aux==0:
         while numero_de_baralhos != 1 and numero_de_baralhos != 6 and numero_de_baralhos != 8:
             print('Número de baralhos não permitido!')
             numero_de_baralhos=int(input("Quantos baralhos você quer? 1, 6 ou 8: ")) 
+
+        baralho=[0,'Ás', 2, 3, 4, 5, 6, 7, 8, 9, 10,'K', 'Q', 'J']  # Criação de uma lista com os índices do baralho.
+        naipe=['Ouro','Paus','Copas','Espada'] 
+
+        num_cartas = []
+        i = 0
+        while i <= 13:  #Atribui a quantidade de cartas que tem em cada naipe dependendo do numero de baralhos.
+            num_cartas.append([numero_de_baralhos,numero_de_baralhos,numero_de_baralhos,numero_de_baralhos])
+            i += 1
+        print('Seu baralho possui', numero_de_baralhos*(len(baralho)-1)*4, 'cartas') 
+

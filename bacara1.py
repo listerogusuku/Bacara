@@ -256,3 +256,29 @@ while aux==0:
                 print("Você perdeu {0} fichas. Sua nova soma é {1}\nNão pague nada a casa ".format(Fichas, soma-Fichas))
                 soma=soma-Fichas        
                
+        else:
+            print("Empate")
+            if Aposta=="Empate" or Aposta=="empate":
+                print('Você ganhou {} fichas. Sua nova soma é {}'.format(8*Fichas, (soma+(8*Fichas))))
+                soma=(soma+(8*Fichas))
+                if numero_de_baralhos==1:  #se banco ganhar
+                    print("Você pagará para casa {} fichas. Sua nova soma é {} ".format(int(0.0101*Fichas), soma-int((0.0101*Fichas))))
+                    soma=soma+Fichas-int((0.0101*Fichas))
+                elif numero_de_baralhos==6:
+                    print("Você pagará para casa {} fichas. Sua nova soma é {} ".format(int(0.0106*Fichas), soma-int((0.0106*Fichas))))
+                    soma=soma+Fichas-int((0.0106*Fichas))
+                else:
+                    print("Você pagará para casa {}. Sua nova soma é {} ".format(int(0.0106*Fichas), soma-int((0.0106*Fichas))))
+                    soma=soma+Fichas-int((0.0106*Fichas))
+            else: 
+                print("Você perdeu {} fichas. Sua nova soma é {} ". format(Fichas, soma-Fichas))
+                soma=soma-Fichas
+            
+        continuar=input("Você quer continuar a jogar?")
+    if continuar=="Sim" or continuar=="sim":
+        if soma<=0:
+            print("Você não tem fichas suficientes")
+            aux=1
+    elif continuar !="Sim" and continuar != "sim":
+        print("O jogo terminou!")
+        aux=1

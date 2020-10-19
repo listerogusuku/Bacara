@@ -190,3 +190,31 @@ while aux==0:
                 carta3_Banco=0
             print("A terceira carta do banco é {} de {}, que equivale a {}".format(c3b,n3b,carta3_Banco))
             print("A nova soma do banco é {}".format((soma_banco+carta3_Banco)%10))
+
+        if soma_banco<=5 and jogador_puxou==1:  
+            if soma_banco<=3 and soma_jogador !=8:
+                print("Banco puxa outra carta!")
+            carta3_Banco=random.randint(1,13)
+            naipe3_Banco=random.randint(0,3)
+            c3b=baralho[carta3_Banco]
+            n3b=naipe[naipe3_Banco]
+
+            # Criação de um While para impedir que o usuário adicione mais fichas do que o permitido:
+
+            while num_cartas[carta3_Banco][naipe3_Banco]==0:
+                carta3_Banco=random.randint(1,13)
+                naipe3_Banco=random.randint(0,3)
+                c3b=baralho[carta3_Banco]
+                n3b=naipe[naipe3_Banco]
+            num_cartas[carta3_Banco][naipe3_Banco]-=1
+            if baralho[carta3_Banco]==10 or baralho[carta3_Banco]=='K' or baralho[carta3_Banco]=='Q' or baralho[carta3_Banco]=='J':
+                carta3_Banco=0
+            print("A terceira carta do banco é {} de {}, que equivale a {}".format(c3b,n3b,carta3_Banco))
+            print("A nova soma do banco é {}".format((soma_banco+carta3_Banco)%10))
+            if soma_banco==4 and carta3_Jogador>1 and carta3_Jogador<8:  # Adição de mais uma exceção para puxar a 3ª carta.
+                print("Banco puxa outra carta!")
+            
+            if soma_banco==5 and carta3_Jogador>3 and carta3_Jogador<8:  # Adição de mais uma exceção para puxar a 3ª carta.
+                print("Banco puxa outra carta!")
+            
+            

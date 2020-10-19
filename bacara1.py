@@ -171,3 +171,22 @@ while aux==0:
                 carta3_Jogador=0
             print("A terceira carta do jogador é {} de {}, que equivale a {} ".format(c3j,n3j,carta3_Jogador))
             print("A nova soma do jogador é {}".format((soma_jogador+carta3_Jogador)%10))
+
+        # Regras avançadas para receber a 3ª carta:
+
+        if soma_banco<=5 and jogador_puxou==0:
+            print ("Banco puxa outra carta")
+            carta3_Banco=random.randint(1,13)
+            naipe3_Banco=random.randint(0,3)
+            c3b=baralho[carta3_Banco]
+            n3b=naipe[naipe3_Banco]
+            while num_cartas[carta3_Banco][naipe3_Banco]==0:
+                carta3_Banco=random.randint(1,13)
+                naipe3_Banco=random.randint(0,3)
+                c3b=baralho[carta3_Banco]
+                n3b=naipe[naipe3_Banco]
+            num_cartas[carta3_Banco][naipe3_Banco]-=1
+            if baralho[carta3_Banco]==10 or baralho[carta3_Banco]=='K' or baralho[carta3_Banco]=='Q' or baralho[carta3_Banco]=='J':
+                carta3_Banco=0
+            print("A terceira carta do banco é {} de {}, que equivale a {}".format(c3b,n3b,carta3_Banco))
+            print("A nova soma do banco é {}".format((soma_banco+carta3_Banco)%10))

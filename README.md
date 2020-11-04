@@ -1,2 +1,2 @@
 # Bacara
-resolvendo conflito
+resolvendo conflito k
